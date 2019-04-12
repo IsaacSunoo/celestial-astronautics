@@ -36,9 +36,6 @@ class App extends Component {
   render() {
     const { dailyNews } = this.state;
     console.log(dailyNews)
-    // const displayImages = imagesCollection.map(space => {
-    //   return <img src={space.links[0].href} alt='nasa pics' />
-    // })
 
     return (
       <div className='app'>

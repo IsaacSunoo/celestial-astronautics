@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getApollo20 } from '../../thunks';
+import ApolloCard from '../../components/ApolloCard';
 
 class Apollo20 extends Component {
 
@@ -13,19 +14,17 @@ class Apollo20 extends Component {
     const { apollo20 } = this.props;
     let displayApollo20;
     if (apollo20.length !== 0) {
-      console.log(apollo20.collection.items);
       displayApollo20 = apollo20.collection.items.map(apollo => {
         return (
           <div className='apollo-items' key={apollo.data[0].nasa_id}>
-            
-            <img src={apollo.links[0].href} alt='apollo space mission' />
+            <ApolloCard apollo={apollo} />
           </div>
         )
       })
     }
 
     return (
-      <div>
+      <div className='apollo-items-container'>
         {displayApollo20}
       </div>
     )
