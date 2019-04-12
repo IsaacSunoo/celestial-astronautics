@@ -8,7 +8,7 @@ const Header = () => {
         <h1>Celestial Astronautical</h1>
         <section className='route-container'>
           <Link to='/' className='link-styles'>Home</Link>
-          <Link to='/apollo20' className='link-styles'>Apollo 20</Link>
+          <Link to='/apollo' className='link-styles'>Apollo</Link>
         </section>
       </header>
     </div>

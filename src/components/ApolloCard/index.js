@@ -1,11 +1,12 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
+import { Card, CardActionArea, CardContent, CardMedia, Typography, ExpansionPanelSummary, ExpansionPanelDetails, ExpansionPanel } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PropTypes from 'prop-types';
 
 const ApolloCard = (props) => {
     const { classes, apollo } = props;
-    console.log('apollo', apollo)
+    // console.log('apollo', apollo)
   return (
     <Card className={classes.card}>
         <CardActionArea>
@@ -16,11 +17,14 @@ const ApolloCard = (props) => {
                 </Typography>
             </CardContent>
         </CardActionArea>
-        <CardActions>
-            <Button size="small" color="primary">
-                Learn More
-            </Button>
-        </CardActions>
+            <ExpansionPanel>
+                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography>Learn more</Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography>{apollo.data[0].description}</Typography>
+                </ExpansionPanelDetails>
+            </ ExpansionPanel>
     </Card>
   )
 }
@@ -29,13 +33,20 @@ ApolloCard.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-const styles = {
+const styles = theme => ({
     card: {
         maxWidth: 345
     },
     media: {
         height: 240,
     },
-};
+    root: {
+        width: '100%',
+    },
+    heading: {
+        fontSize: theme.typography.pxToRem(15),
+        fontWeight: theme.typography.fontWeightRegular,
+    }
+});
 
 export default withStyles(styles)(ApolloCard);

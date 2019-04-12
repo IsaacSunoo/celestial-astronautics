@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setLoading } from '../../actions';
+import { getDailyNews } from '../../thunks';
 import Header from '../../components/Header';
-import apiKey from '../../api_key/apiKey';
+// import apiKey from '../../api_key/apiKey';
 import Apollo20 from '../Apollo20';
 import MainPage from '../../components/MainPage';
 
@@ -13,46 +16,65 @@ class App extends Component {
     }
   }
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
+    const { getDailyNews } = this.props;
+    getDailyNews();
+    // const { setLoading } = this.props;
+    // console.log(this.props)
+    // const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
+    // setLoading(true);
+    // const response = await fetch(url);
+    // const dailyNews = await response.json();
+    // this.setState({dailyNews});
+    // setLoading(false);
+    // fetch(url)
+    //   .then(response => response.json())
+    //   .then(dailyNews => this.setState({dailyNews}));
 
-    const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
-    fetch(url)
-      .then(response => response.json())
-      .then(dailyNews => this.setState({dailyNews}));
+    // fetch('https://data.nasa.gov/resource/f7qz-8dsr.json')
+    //   .then(response => response.json())
+    //   .then(data => console.log(data));
 
-    fetch('https://data.nasa.gov/resource/f7qz-8dsr.json')
-      .then(response => response.json())
-      .then(data => console.log(data));
+    // fetch(`https://api.nasa.gov/EPIC/api/natural/images?api_key=${apiKey}`)
+    //   .then(response => response.json())
+    //   .then(data => console.log(data))
 
-    fetch(`https://api.nasa.gov/EPIC/api/natural/images?api_key=${apiKey}`)
-      .then(response => response.json())
-      .then(data => console.log(data))
-
-    fetch(`https://api.nasa.gov/planetary/earth/imagery?lon=100.75&lat=1.5&date=2014-02-01&cloud_score=True&api_key=${apiKey}`)
-      .then(response => response.json())
-      .then(data => console.log(data))
+    // fetch(`https://api.nasa.gov/planetary/earth/imagery?lon=100.75&lat=1.5&date=2014-02-01&cloud_score=True&api_key=${apiKey}`)
+    //   .then(response => response.json())
+    //   .then(data => console.log(data))
   }
 
   render() {
-    const { dailyNews } = this.state;
+    // const { dailyNews } = this.state;
+    const { isLoading, dailyNews } = this.props;
     console.log(dailyNews)
+    console.log(isLoading)
 
     return (
       <div className='app'>
         <Route path='/' component={Header} />
-        <Route exact path='/' render={() => (
-          <MainPage {...dailyNews}/>
-        )} />
-        <Route exact path='/apollo20' component={Apollo20} />
+        {/* { isLoading ?
+          <h4>Loading...</h4> : */}
+          <Switch>
+            <Route exact path='/' render={() => (
+              <MainPage {...dailyNews}/>
+            )} />
+            <Route exact path='/apollo' component={Apollo20} />
+          </Switch>
+        {/* } */}
       </div>
     );
   }
 }
 
-export default App;
+export const mapStateToProps = state => ({
+  isLoading: state.isLoading,
+  dailyNews: state.dailyNews
+});
 
+export const mapDispatchToProps = dispatch => ({
+  setLoading: (bool) => dispatch(setLoading(bool)),
+  getDailyNews: () => dispatch(getDailyNews())
+});
 
-
-
-
-
+export default connect(mapStateToProps, mapDispatchToProps)(App);

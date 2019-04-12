@@ -12,3 +12,8 @@ export const getApolloData = apolloData => ({
     type: 'GET_APOLLO_DATA',
     apolloData
 });
+
+export const getDaily = daily => ({
+    type: 'GET_DAILY',
+    daily
+});

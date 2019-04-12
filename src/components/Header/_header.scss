@@ -1,11 +1,12 @@
 .header-container {
-    background-color: #000;
+    background-image: url('../images/space.jpg');
+    background-size: cover;
     color: #FFF;
     display: flex;
     font-family: $mainFont;
     justify-content: center;
     padding: 30px;
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
 }
 
 .link-styles {

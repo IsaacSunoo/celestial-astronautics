@@ -1,7 +1,7 @@
 .apollo-items-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, 300px);
-    grid-template-rows: repeat(3, 520px);
     grid-gap: 40px;
     justify-content: center;
+    padding-top: 30px;
 }
