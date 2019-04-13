@@ -19,6 +19,12 @@ class App extends Component {
   componentDidMount = async () => {
     const { getDailyNews } = this.props;
     getDailyNews();
+
+    const url = 'https://images-api.nasa.gov/search?q=orion%20landing&media_type=image';
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => console.log(data));
     // const { setLoading } = this.props;
     // console.log(this.props)
     // const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
