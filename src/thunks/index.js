@@ -1,4 +1,4 @@
-import { setLoading, getApolloData, setError, getDaily } from '../actions';
+import { setLoading, getApolloData, setError, getDaily, getOrionData } from '../actions';
 import { fetchCall } from '../api';
 import apiKey from '../api_key/apiKey';
 
@@ -26,6 +26,20 @@ export const getDailyNews = () => {
             const dailyNews = await fetchCall(url);
             dispatch(setLoading(false));
             dispatch(getDaily(dailyNews));
+        } catch (err) {
+            dispatch(setError(err.message));
+        }
+    }
+}
+
+export const getOrion = () => {
+    const url = 'https://images-api.nasa.gov/search?q=orion%20space&media_type=image';
+    return async dispatch => {
+        try {
+            dispatch(setLoading(true));
+            const orion = await fetchCall(url);
+            dispatch(setLoading(false));
+            dispatch(getOrionData(orion.collection));
         } catch (err) {
             dispatch(setError(err.message));
         }

@@ -17,3 +17,8 @@ export const getDaily = daily => ({
     type: 'GET_DAILY',
     daily
 });
+
+export const getOrionData = orionData => ({
+    type: 'GET_ORION_DATA',
+    orionData
+});

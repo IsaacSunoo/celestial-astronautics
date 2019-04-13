@@ -4,16 +4,15 @@ import { Card, CardActionArea, CardContent, CardMedia, Typography, ExpansionPane
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PropTypes from 'prop-types';
 
-const ApolloCard = (props) => {
-    const { classes, apollo } = props;
-    // console.log('apollo', apollo)
+const InfoCard = (props) => {
+    const { classes, information } = props;
   return (
     <Card className={classes.card}>
         <CardActionArea>
-            <CardMedia className={classes.media} image={apollo.links[0].href} title="Apollo images" />
+            <CardMedia className={classes.media} image={information.links[0].href} title="Apollo images" />
             <CardContent>
                 <Typography gutterBottom variant="h6" component="h6">
-                    {apollo.data[0].title}
+                    {information.data[0].title}
                 </Typography>
             </CardContent>
         </CardActionArea>
@@ -22,14 +21,14 @@ const ApolloCard = (props) => {
                     <Typography>Learn more</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    <Typography>{apollo.data[0].description}</Typography>
+                    <Typography>{information.data[0].description}</Typography>
                 </ExpansionPanelDetails>
             </ ExpansionPanel>
     </Card>
   )
 }
 
-ApolloCard.propTypes = {
+InfoCard.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
@@ -47,6 +46,6 @@ const styles = theme => ({
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
     }
-});
 
-export default withStyles(styles)(ApolloCard);
+});
+export default withStyles(styles)(InfoCard);

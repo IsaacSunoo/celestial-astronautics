@@ -6,6 +6,7 @@ import { getDailyNews } from '../../thunks';
 import Header from '../../components/Header';
 // import apiKey from '../../api_key/apiKey';
 import Apollo20 from '../Apollo20';
+import Orion from '../../containers/Orion';
 import MainPage from '../../components/MainPage';
 
 class App extends Component {
@@ -20,11 +21,13 @@ class App extends Component {
     const { getDailyNews } = this.props;
     getDailyNews();
 
-    const url = 'https://images-api.nasa.gov/search?q=orion%20landing&media_type=image';
+    const url = 'https://images-api.nasa.gov/search?q=milkyway';
 
     fetch(url)
       .then(response => response.json())
       .then(data => console.log(data));
+
+
     // const { setLoading } = this.props;
     // console.log(this.props)
     // const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
@@ -53,8 +56,8 @@ class App extends Component {
   render() {
     // const { dailyNews } = this.state;
     const { isLoading, dailyNews } = this.props;
-    console.log(dailyNews)
-    console.log(isLoading)
+    // console.log(dailyNews)
+    // console.log(isLoading)
 
     return (
       <div className='app'>
@@ -66,6 +69,7 @@ class App extends Component {
               <MainPage {...dailyNews}/>
             )} />
             <Route exact path='/apollo' component={Apollo20} />
+            <Route exact path='/orion' component={Orion} />
           </Switch>
         {/* } */}
       </div>

@@ -9,6 +9,7 @@ const Header = () => {
         <section className='route-container'>
           <Link to='/' className='link-styles'>Home</Link>
           <Link to='/apollo' className='link-styles'>Apollo</Link>
+          <Link to='/orion' className='link-styles'>Orion</Link>
         </section>
       </header>
     </div>
