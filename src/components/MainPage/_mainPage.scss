@@ -4,8 +4,6 @@
     display: flex;
     flex-direction: column;
     padding: 30px 100px 300px;
-    // padding-top: 30px;
-    // padding-bottom: 300px;
     position: relative;
     text-align: center;
     z-index: 1;
@@ -19,9 +17,8 @@
         padding-bottom: 15px;
     }
 
-    .daily-description {
-        // display: flex;
-        // justify-content: center;
-        // width: 300px;
+    .daily-video {
+        margin-left: auto;
+        margin-right: auto;
     }
 }

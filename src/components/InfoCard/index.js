@@ -21,7 +21,7 @@ const InfoCard = (props) => {
                     <Typography>Learn more</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    <Typography>{information.data[0].description}</Typography>
+                    <Typography className='learn-more-container'>{information.data[0].description}</Typography>
                 </ExpansionPanelDetails>
             </ ExpansionPanel>
     </Card>

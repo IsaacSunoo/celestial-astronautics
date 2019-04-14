@@ -4,41 +4,17 @@ import { connect } from 'react-redux';
 import { setLoading } from '../../actions';
 import { getDailyNews } from '../../thunks';
 import Header from '../../components/Header';
-// import apiKey from '../../api_key/apiKey';
 import Apollo20 from '../Apollo20';
-import Orion from '../../containers/Orion';
+import Orion from '../Orion';
 import MainPage from '../../components/MainPage';
+import Milkyway from '../Milkyway';
+import Scratchpad from '../Scratchpad';
+import Nebula from '../Nebula';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      dailyNews: {}
-    }
-  }
-
   componentDidMount = async () => {
     const { getDailyNews } = this.props;
     getDailyNews();
-
-    const url = 'https://images-api.nasa.gov/search?q=milkyway';
-
-    fetch(url)
-      .then(response => response.json())
-      .then(data => console.log(data));
-
-
-    // const { setLoading } = this.props;
-    // console.log(this.props)
-    // const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
-    // setLoading(true);
-    // const response = await fetch(url);
-    // const dailyNews = await response.json();
-    // this.setState({dailyNews});
-    // setLoading(false);
-    // fetch(url)
-    //   .then(response => response.json())
-    //   .then(dailyNews => this.setState({dailyNews}));
 
     // fetch('https://data.nasa.gov/resource/f7qz-8dsr.json')
     //   .then(response => response.json())
@@ -54,10 +30,7 @@ class App extends Component {
   }
 
   render() {
-    // const { dailyNews } = this.state;
-    const { isLoading, dailyNews } = this.props;
-    // console.log(dailyNews)
-    // console.log(isLoading)
+    const { dailyNews } = this.props;
 
     return (
       <div className='app'>
@@ -70,6 +43,9 @@ class App extends Component {
             )} />
             <Route exact path='/apollo' component={Apollo20} />
             <Route exact path='/orion' component={Orion} />
+            <Route exact path='/milkyway' component={Milkyway} />
+            <Route exact path='/scratchpad' component={Scratchpad} />
+            <Route exact path='/nebula' component ={Nebula} />
           </Switch>
         {/* } */}
       </div>

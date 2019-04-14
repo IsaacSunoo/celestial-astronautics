@@ -22,3 +22,13 @@ export const getOrionData = orionData => ({
     type: 'GET_ORION_DATA',
     orionData
 });
+
+export const getMilkyData = milkyData => ({
+    type: 'GET_MILKY_DATA',
+    milkyData
+});
+
+export const getNebulaData = nebulaData => ({
+    type: 'GET_NEBULA_DATA',
+    nebulaData
+});

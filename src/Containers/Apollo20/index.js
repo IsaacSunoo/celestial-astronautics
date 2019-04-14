@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getApollo20 } from '../../thunks';
 import InfoCard from '../../components/InfoCard';
+import Particles from '../../components/Particles';
 
 class Apollo20 extends Component {
 
@@ -25,6 +26,7 @@ class Apollo20 extends Component {
 
     return (
       <div className='info-items-container'>
+        <Particles />
         {displayApollo20}
       </div>
     )

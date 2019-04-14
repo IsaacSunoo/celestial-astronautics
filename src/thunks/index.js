@@ -1,4 +1,4 @@
-import { setLoading, getApolloData, setError, getDaily, getOrionData } from '../actions';
+import { setLoading, getApolloData, setError, getDaily, getOrionData, getMilkyData, getNebulaData } from '../actions';
 import { fetchCall } from '../api';
 import apiKey from '../api_key/apiKey';
 
@@ -40,6 +40,34 @@ export const getOrion = () => {
             const orion = await fetchCall(url);
             dispatch(setLoading(false));
             dispatch(getOrionData(orion.collection));
+        } catch (err) {
+            dispatch(setError(err.message));
+        }
+    }
+}
+
+export const getMilkyway = () => {
+    const url = 'https://images-api.nasa.gov/search?q=milkyway';
+    return async dispatch => {
+        try {
+            dispatch(setLoading(true));
+            const milkyway = await fetchCall(url);
+            dispatch(setLoading(false));
+            dispatch(getMilkyData(milkyway.collection));
+        } catch (err) {
+            dispatch(setError(err.message));
+        }
+    }
+}
+
+export const getNebula = () => {
+    const url = 'https://images-api.nasa.gov/search?q=nebula';
+    return async dispatch => {
+        try {
+            dispatch(setLoading(true));
+            const nebula = await fetchCall(url);
+            dispatch(setLoading(false));
+            dispatch(getNebulaData(nebula.collection));
         } catch (err) {
             dispatch(setError(err.message));
         }

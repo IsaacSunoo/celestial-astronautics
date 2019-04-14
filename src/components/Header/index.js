@@ -10,6 +10,8 @@ const Header = () => {
           <Link to='/' className='link-styles'>Home</Link>
           <Link to='/apollo' className='link-styles'>Apollo</Link>
           <Link to='/orion' className='link-styles'>Orion</Link>
+          <Link to='/milkyway' className='link-styles'>Milky Way</Link>
+          <Link to='/nebula' className='link-styles'>Nebula</Link>
         </section>
       </header>
     </div>
