@@ -47,7 +47,7 @@ export const getOrion = () => {
 }
 
 export const getMilkyway = () => {
-    const url = 'https://images-api.nasa.gov/search?q=milkyway';
+    const url = 'https://images-api.nasa.gov/search?q=stars';
     return async dispatch => {
         try {
             dispatch(setLoading(true));
