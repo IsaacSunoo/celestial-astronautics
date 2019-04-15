@@ -6,6 +6,7 @@ import { daily } from './daily';
 import { orion } from './orion';
 import { milkyway } from './milkway';
 import { nebula } from './nebula';
+import { galaxy } from './galaxy';
 
 export const rootReducer = combineReducers({
     isLoading: loading,
@@ -14,5 +15,6 @@ export const rootReducer = combineReducers({
     orion,
     milkyway,
     nebula,
+    galaxy,
     dailyNews: daily
 })

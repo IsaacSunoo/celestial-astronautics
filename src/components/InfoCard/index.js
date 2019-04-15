@@ -21,7 +21,7 @@ const InfoCard = (props) => {
                     <Typography>Learn more</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    <Typography className='learn-more-container'>{information.data[0].description}</Typography>
+                    <Typography className={classes.information}>{information.data[0].description}</Typography>
                 </ExpansionPanelDetails>
             </ ExpansionPanel>
     </Card>
@@ -37,14 +37,16 @@ const styles = theme => ({
         maxWidth: 345
     },
     media: {
-        height: 240,
+        height: 240
     },
     root: {
-        width: '100%',
+        width: '100%'
     },
     heading: {
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
+    },
+    information: {
     }
 
 });

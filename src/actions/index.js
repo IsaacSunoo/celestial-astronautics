@@ -32,3 +32,8 @@ export const getNebulaData = nebulaData => ({
     type: 'GET_NEBULA_DATA',
     nebulaData
 });
+
+export const getGalaxyData = galaxyData => ({
+    type: 'GET_GALAXY_DATA',
+    galaxyData
+});

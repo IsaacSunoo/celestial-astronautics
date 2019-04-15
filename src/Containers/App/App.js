@@ -10,6 +10,8 @@ import MainPage from '../../components/MainPage';
 import Milkyway from '../Milkyway';
 import Scratchpad from '../Scratchpad';
 import Nebula from '../Nebula';
+import Galaxy from '../Galaxy';
+// import PropTypes from 'prop-types';
 
 class App extends Component {
   componentDidMount = async () => {
@@ -44,8 +46,9 @@ class App extends Component {
             <Route exact path='/apollo' component={Apollo20} />
             <Route exact path='/orion' component={Orion} />
             <Route exact path='/milkyway' component={Milkyway} />
+            <Route exact path='/nebula' component={Nebula} />
+            <Route exact path='/galaxy' component={Galaxy} />
             <Route exact path='/scratchpad' component={Scratchpad} />
-            <Route exact path='/nebula' component ={Nebula} />
           </Switch>
         {/* } */}
       </div>
@@ -62,5 +65,10 @@ export const mapDispatchToProps = dispatch => ({
   setLoading: (bool) => dispatch(setLoading(bool)),
   getDailyNews: () => dispatch(getDailyNews())
 });
+
+// App.propTypes = {
+//   dailyNews: PropTypes.array.isRequired,
+//   getDailyNews: PropTypes.func.isRequired
+// }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
