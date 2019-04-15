@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getNebula } from '../../thunks';
+import LoadingGif from '../../images/Loading.gif';
+import Particles from '../../components/Particles';
 import InfoCard from '../../components/InfoCard';
+
 
 
 class Nebula extends Component {
@@ -11,20 +14,30 @@ class Nebula extends Component {
     }
 
     render() {
-        const { nebula } = this.props;
+        const { nebula, isLoading } = this.props;
         let displayNebula;
         if (nebula.length !== 0) {
-            displayNebula = nebula.items.map(item => {
+            if (isLoading) {
                 return (
-                    <div key={item.data[0].nasa_id}>
-                        <InfoCard information={item} />
+                    <div className='loading-display'>
+                        <h2>Loading</h2>
+                        <img src={LoadingGif} alt='loading gif' />
                     </div>
                 )
-            });
+            } else {
+                displayNebula = nebula.items.map(item => {
+                    return (
+                        <div key={item.data[0].nasa_id}>
+                            <InfoCard information={item} />
+                        </div>
+                    )
+                });
+            }
         }
 
         return (
             <div className='info-items-container'>
+                <Particles />
                 {displayNebula}
             </div>
         )
@@ -32,7 +45,8 @@ class Nebula extends Component {
 }
 
 export const mapStateToProps = state => ({
-    nebula: state.nebula
+    nebula: state.nebula,
+    isLoading: state.isLoading
 });
 
 export const mapDispatchToProps = dispatch => ({

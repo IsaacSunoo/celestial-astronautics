@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setLoading } from '../../actions';
 import { getDailyNews } from '../../thunks';
+import PageNotFound from '../../components/PageNotFound';
 import Header from '../../components/Header';
 import Apollo20 from '../Apollo20';
 import Orion from '../Orion';
@@ -49,6 +50,7 @@ class App extends Component {
             <Route exact path='/nebula' component={Nebula} />
             <Route exact path='/galaxy' component={Galaxy} />
             <Route exact path='/scratchpad' component={Scratchpad} />
+            <Route component={PageNotFound} />
           </Switch>
         {/* } */}
       </div>

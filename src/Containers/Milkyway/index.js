@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getMilkyway } from '../../thunks';
+import LoadingGif from '../../images/Loading.gif';
 import InfoCard from '../../components/InfoCard';
+import Particles from '../../components/Particles';
 
 class Milkyway extends Component {
 
@@ -11,20 +13,30 @@ class Milkyway extends Component {
     }
 
     render() {
-        const { milkyway } = this.props;
+        const { milkyway, isLoading } = this.props;
         let displayMilkyway;
         if (milkyway.length !== 0) {
-            displayMilkyway = milkyway.items.map(milkyItem => {
+            if (isLoading) {
                 return (
-                    <div key={milkyItem.data[0].nasa_id}>
-                        <InfoCard information={milkyItem} />
+                    <div className='loading-display'>
+                        <h2>Loading</h2>
+                        <img src={LoadingGif} alt='loading gif' />
                     </div>
                 )
-            });
+            } else {
+                displayMilkyway = milkyway.items.map(milkyItem => {
+                    return (
+                        <div key={milkyItem.data[0].nasa_id}>
+                            <InfoCard information={milkyItem} />
+                        </div>
+                    )
+                });
+            }
         }
 
         return (
             <div className='info-items-container'>
+                <Particles />
                 {displayMilkyway}
             </div>
         )
@@ -32,7 +44,8 @@ class Milkyway extends Component {
 }
 
 export const mapStateToProps = state => ({
-    milkyway: state.milkyway
+    milkyway: state.milkyway,
+    isLoading: state.isLoading
 });
 
 export const mapDispatchToProps = dispatch => ({

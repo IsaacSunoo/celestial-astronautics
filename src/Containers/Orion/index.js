@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getOrion } from '../../thunks';
+import LoadingGif from '../../images/Loading.gif';
+import Particles from '../../components/Particles';
 import InfoCard from '../../components/InfoCard';
 
 class Orion extends Component {
@@ -11,20 +13,30 @@ class Orion extends Component {
     }
 
   render() {
-    const { orion } = this.props;
+    const { orion, isLoading } = this.props;
     let displayOrion;
     if (orion.length !== 0) {
-      displayOrion = orion.items.map(orionItem => {
+      if (isLoading) {
         return (
-          <div className='orion-items' key={orionItem.data[0].nasa_id}>
-            <InfoCard information={orionItem} />
+          <div className='loading-display'>
+            <h2>Loading</h2>
+            <img src={LoadingGif} alt='loading gif' />
           </div>
         )
-      });
+      } else {
+        displayOrion = orion.items.map(orionItem => {
+          return (
+            <div className='orion-items' key={orionItem.data[0].nasa_id}>
+              <InfoCard information={orionItem} />
+            </div>
+          )
+        });
+      }
     }
 
     return (
       <div className='info-items-container'>
+        <Particles />
         {displayOrion}
       </div>
     )
@@ -32,7 +44,8 @@ class Orion extends Component {
 }
 
 export const mapStateToProps = state => ({
-    orion: state.orion
+  orion: state.orion,
+  isLoading: state.isLoading
 });
 
 export const mapDispatchToProps = dispatch => ({
