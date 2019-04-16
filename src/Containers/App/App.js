@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setLoading } from '../../actions';
 import { getDailyNews } from '../../thunks';
+import LoadingGif from '../../images/Loading.gif';
 import PageNotFound from '../../components/PageNotFound';
 import Header from '../../components/Header';
 import Apollo20 from '../Apollo20';
@@ -22,7 +23,7 @@ class App extends Component {
   }
 
   render() {
-    const { dailyNews } = this.props;
+    const { dailyNews, isLoading } = this.props;
 
     return (
       <div className='app'>
