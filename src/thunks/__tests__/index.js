@@ -1,4 +1,4 @@
-import { getDailyNews, getApollo20, getOrion, getMilkyway, getNebula, getGalaxy } from '../index';
+import { getDailyNews, getApollo20, getOrion, getMilkyway, getNebula, getGalaxy, getStars } from '../index';
 import * as actions from '../../actions';
 
 describe('Thunks', () => {
@@ -202,6 +202,38 @@ describe('Thunks', () => {
                 statusText: 'Error Retrieving'
             }));
             const thunk = getGalaxy;
+            await thunk(mockDispatch);
+            expect(mockDispatch).toHaveBeenCalledWith(actions.setError('Error Retrieving.'))
+        });
+    });
+
+    describe('getStars', () => {
+        let thunk;
+        beforeEach(() => {
+            thunk = getStars();
+        });
+
+        it('calls fetch', () => {
+            thunk(mockDispatch);
+            expect(window.fetch).toHaveBeenCalled();
+        });
+
+        it('calls dispatch with setLoading', () => {
+            thunk(mockDispatch);
+            expect(mockDispatch).toHaveBeenCalledWith(actions.setLoading(true));
+        });
+
+        it('should dispatch setLoading to false', async () => {
+            await thunk(mockDispatch);
+            expect(mockDispatch).toHaveBeenCalledWith(actions.setLoading(false));
+        });
+
+        it.skip('should dispatch setError with error message if the response is not ok', async () => {
+            window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+                ok: false,
+                statusText: 'Error Retrieving'
+            }));
+            const thunk = getStars;
             await thunk(mockDispatch);
             expect(mockDispatch).toHaveBeenCalledWith(actions.setError('Error Retrieving.'))
         });

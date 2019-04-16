@@ -113,4 +113,19 @@ describe('actions', () => {
             expect(result).toEqual(expected);
         });
     });
+
+    describe('getStarsData', () => {
+        it('should return a type of getStars with the stars data', () => {
+            const mockStars = [
+                { id: '1', data: 'Star 1' },
+                { id: '2', data: 'Star 2' }
+            ]
+            const expected = {
+                type: 'GET_STARS_DATA',
+                starsData: mockStars
+            }
+            const result = actions.getStarsData(mockStars);
+            expect(result).toEqual(expected);
+        });
+    });
 })
