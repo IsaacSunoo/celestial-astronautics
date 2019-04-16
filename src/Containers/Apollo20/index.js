@@ -14,6 +14,7 @@ class Apollo20 extends Component {
 
   render() {
     const { apollo20, isLoading } = this.props;
+    console.log(apollo20)
     let displayApollo20;
     if (apollo20.length !== 0) {
       if (isLoading) {
@@ -24,7 +25,7 @@ class Apollo20 extends Component {
           </div>
         )
       } else {
-        displayApollo20 = apollo20.collection.items.map(apollo => {
+        displayApollo20 = apollo20.items.map(apollo => {
           return (
             <div className='apollo-items' key={apollo.data[0].nasa_id}>
               <InfoCard information={apollo} />
@@ -37,7 +38,7 @@ class Apollo20 extends Component {
     return (
       <div className='info-items-container'>
         <Particles />
-        {displayApollo20} 
+        {displayApollo20}
       </div>
     )
   }

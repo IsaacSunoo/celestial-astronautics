@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Menu, MenuItem, IconButton } from '@material-ui/core';
+import { Button, Menu, MenuItem } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import Icon from '@material-ui/core/Icon';
@@ -18,10 +18,7 @@ const DropdownMenu = ({classes}) => {
     return (
         <div className='dropdown-container'>
             <Button aria-owns={anchorEl ? 'simple-menu' : undefined} aria-haspopup="true" onClick={handleClick}>
-                {/* <IconButton className='dropdown-btn' aria-owns={anchorEl ? 'simple-menu' : undefined} aria-haspopup="true" onClick={handleClick}> */}
-                    <Icon className={classes.dropdown}>menu</Icon>
-                {/* </IconButton> */}
-                {/* <span className='dropdown-btn'>Open Menu</span> */}
+                <Icon className={classes.dropdown}>menu</Icon>
             </Button>
             <Menu id="simple-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
                 <MenuItem onClick={handleClose}><Link to='/' className='link-styles'>Home</Link></MenuItem>

@@ -9,7 +9,7 @@ export const getApollo20 = () => {
             dispatch(setLoading(true));
             const apollo = await fetchCall(url);
             dispatch(setLoading(false));
-            dispatch(getApolloData(apollo));
+            dispatch(getApolloData(apollo.collection));
         } catch (err) {
             dispatch(setError(err.message));
         }
