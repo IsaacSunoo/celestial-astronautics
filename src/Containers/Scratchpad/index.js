@@ -10,11 +10,10 @@ class Scratchpad extends Component {
     }
 
     componentDidMount = async () => {
-        const url = 'https://images-api.nasa.gov/search?description=stars';
+      const url = 'https://images-api.nasa.gov/search?q=hubble%20space&media_type=image';
         const response = await fetch(url);
         const data = await response.json();
         this.setState({testFetch: data.collection})
-
     }
 
   render() {

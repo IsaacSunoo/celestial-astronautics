@@ -13,6 +13,7 @@ import Scratchpad from '../Scratchpad';
 import Nebula from '../Nebula';
 import Galaxy from '../Galaxy';
 import Stars from '../Stars';
+import CosmosQuiz from '../CosmosQuiz';
 // import PropTypes from 'prop-types';
 
 class App extends Component {
@@ -37,6 +38,7 @@ class App extends Component {
             <Route exact path='/nebula' component={Nebula} />
             <Route exact path='/galaxy' component={Galaxy} />
             <Route exact path='/stars' component={Stars} />
+            <Route exact path='/cosmosquiz' component={CosmosQuiz} />
             <Route exact path='/scratchpad' component={Scratchpad} />
             <Route component={PageNotFound} />
           </Switch>

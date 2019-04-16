@@ -22,6 +22,7 @@ const DropdownMenu = ({classes}) => {
             </Button>
             <Menu id="simple-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
                 <MenuItem onClick={handleClose}><Link to='/' className='link-styles'>Home</Link></MenuItem>
+                <MenuItem onClick={handleClose}><Link to='/cosmosquiz' className='link-styles'>Cosmos Quiz</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link to='/apollo' className='link-styles'>Apollo</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link to='/orion' className='link-styles'>Orion</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link to='/milkyway' className='link-styles'>Milky Way</Link></MenuItem>
