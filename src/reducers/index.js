@@ -7,6 +7,7 @@ import { orion } from './orion';
 import { milkyway } from './milkyway';
 import { nebula } from './nebula';
 import { galaxy } from './galaxy';
+import { stars } from './stars';
 
 export const rootReducer = combineReducers({
     isLoading: loading,
@@ -16,5 +17,6 @@ export const rootReducer = combineReducers({
     milkyway,
     nebula,
     galaxy,
+    stars,
     dailyNews: daily
 })

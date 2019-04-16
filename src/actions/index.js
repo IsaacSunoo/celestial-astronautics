@@ -37,3 +37,8 @@ export const getGalaxyData = galaxyData => ({
     type: 'GET_GALAXY_DATA',
     galaxyData
 });
+
+export const getStarsData = starsData => ({
+    type: 'GET_STARS_DATA',
+    starsData
+});

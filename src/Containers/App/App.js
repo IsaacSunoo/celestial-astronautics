@@ -12,24 +12,13 @@ import Milkyway from '../Milkyway';
 import Scratchpad from '../Scratchpad';
 import Nebula from '../Nebula';
 import Galaxy from '../Galaxy';
+import Stars from '../Stars';
 // import PropTypes from 'prop-types';
 
 class App extends Component {
   componentDidMount = async () => {
     const { getDailyNews } = this.props;
     getDailyNews();
-
-    // fetch('https://data.nasa.gov/resource/f7qz-8dsr.json')
-    //   .then(response => response.json())
-    //   .then(data => console.log(data));
-
-    // fetch(`https://api.nasa.gov/EPIC/api/natural/images?api_key=${apiKey}`)
-    //   .then(response => response.json())
-    //   .then(data => console.log(data))
-
-    // fetch(`https://api.nasa.gov/planetary/earth/imagery?lon=100.75&lat=1.5&date=2014-02-01&cloud_score=True&api_key=${apiKey}`)
-    //   .then(response => response.json())
-    //   .then(data => console.log(data))
   }
 
   render() {
@@ -38,8 +27,6 @@ class App extends Component {
     return (
       <div className='app'>
         <Route path='/' component={Header} />
-        {/* { isLoading ?
-          <h4>Loading...</h4> : */}
           <Switch>
             <Route exact path='/' render={() => (
               <MainPage {...dailyNews}/>
@@ -49,10 +36,10 @@ class App extends Component {
             <Route exact path='/milkyway' component={Milkyway} />
             <Route exact path='/nebula' component={Nebula} />
             <Route exact path='/galaxy' component={Galaxy} />
+            <Route exact path='/stars' component={Stars} />
             <Route exact path='/scratchpad' component={Scratchpad} />
             <Route component={PageNotFound} />
           </Switch>
-        {/* } */}
       </div>
     );
   }

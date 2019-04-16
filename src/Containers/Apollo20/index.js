@@ -37,7 +37,7 @@ class Apollo20 extends Component {
     return (
       <div className='info-items-container'>
         <Particles />
-        {displayApollo20}
+        {displayApollo20} 
       </div>
     )
   }

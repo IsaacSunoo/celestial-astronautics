@@ -1,8 +1,6 @@
-import { setLoading, getApolloData, setError, getDaily, getOrionData, getMilkyData, getNebulaData, getGalaxyData } from '../actions';
+import { setLoading, getApolloData, setError, getDaily, getOrionData, getMilkyData, getNebulaData, getGalaxyData, getStarsData } from '../actions';
 import { fetchCall } from '../api';
 import apiKey from '../api_key/apiKey';
-
-// const baseUrl = 'https://api.nasa.gov/';
 
 export const getApollo20 = () => {
     const url = 'https://images-api.nasa.gov/search?q=apollo%20landing&media_type=image';
@@ -82,6 +80,20 @@ export const getGalaxy = () => {
             const galaxy = await fetchCall(url);
             dispatch(setLoading(false));
             dispatch(getGalaxyData(galaxy.collection));
+        } catch (err) {
+            dispatch(err.message);
+        }
+    }
+}
+
+export const getStars = () => {
+    const url = 'https://images-api.nasa.gov/search?description=stars';
+    return async dispatch => {
+        try {
+            dispatch(setLoading(true));
+            const stars = await fetchCall(url);
+            dispatch(setLoading(false));
+            dispatch(getStarsData(stars.collection));
         } catch (err) {
             dispatch(err.message);
         }
