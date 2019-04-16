@@ -17,29 +17,29 @@ class Nebula extends Component {
         const { nebula, isLoading } = this.props;
         let displayNebula;
         if (nebula.length !== 0) {
-            if (isLoading) {
+            displayNebula = nebula.items.map(item => {
                 return (
-                    <div className='loading-display'>
-                        <h2>Loading</h2>
-                        <img src={LoadingGif} alt='loading gif' />
+                    <div key={item.data[0].nasa_id}>
+                        <InfoCard information={item} />
                     </div>
                 )
-            } else {
-                displayNebula = nebula.items.map(item => {
-                    return (
-                        <div key={item.data[0].nasa_id}>
-                            <InfoCard information={item} />
-                        </div>
-                    )
-                });
-            }
+            });
         }
 
         return (
+            isLoading ?
+            (
+            <div className='loading-display'>
+                <h2>Loading</h2>
+                <img src={LoadingGif} alt='loading gif' />
+            </div>
+            ) :
+            (
             <div className='info-items-container'>
                 <Particles />
                 {displayNebula}
             </div>
+            )
         )
     }
 }

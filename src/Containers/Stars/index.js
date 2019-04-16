@@ -16,30 +16,26 @@ class Apollo20 extends Component {
         const { stars, isLoading } = this.props;
         let displayStars;
         if (stars.length !== 0) {
-            if (isLoading) {
+            displayStars = stars.items.map(star => {
                 return (
-                    <div className='loading-display'>
-                        <h2>Loading</h2>
-                        <img src={LoadingGif} alt='loading gif' />
+                    <div className='stars-items' key={star.data[0].nasa_id}>
+                        <InfoCard information={star} />
                     </div>
                 )
-            } else {
-                displayStars = stars.items.map(star => {
-                    return (
-                        <div className='stars-items' key={star.data[0].nasa_id}>
-                            <InfoCard information={star} />
-                        </div>
-                    )
-                });
-            };
+            });
         };
 
-        return (
-            <div className='info-items-container'>
-                <Particles />
-                {displayStars}
-            </div>
-        )
+        return isLoading ? (
+          <div className='loading-display'>
+            <h2>Loading</h2>
+            <img src={LoadingGif} alt='loading gif' />
+          </div>
+        ) : (
+          <div className='info-items-container'>
+            <Particles />
+            {displayStars}
+          </div>
+        );
     }
 }
 

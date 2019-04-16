@@ -16,29 +16,29 @@ class Orion extends Component {
     const { orion, isLoading } = this.props;
     let displayOrion;
     if (orion.length !== 0) {
-      if (isLoading) {
+      displayOrion = orion.items.map(orionItem => {
         return (
-          <div className='loading-display'>
-            <h2>Loading</h2>
-            <img src={LoadingGif} alt='loading gif' />
+          <div className='orion-items' key={orionItem.data[0].nasa_id}>
+            <InfoCard information={orionItem} />
           </div>
         )
-      } else {
-        displayOrion = orion.items.map(orionItem => {
-          return (
-            <div className='orion-items' key={orionItem.data[0].nasa_id}>
-              <InfoCard information={orionItem} />
-            </div>
-          )
-        });
-      }
+      });
     }
 
     return (
-      <div className='info-items-container'>
-        <Particles />
-        {displayOrion}
-      </div>
+        isLoading ?
+        (
+        <div className='loading-display'>
+            <h2>Loading</h2>
+            <img src={LoadingGif} alt='loading gif' />
+        </div>
+        ) :
+        (
+        <div className='info-items-container'>
+            <Particles />
+            {displayOrion}
+        </div>
+        )
     )
   }
 }

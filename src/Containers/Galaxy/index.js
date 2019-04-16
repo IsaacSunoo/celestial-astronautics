@@ -15,29 +15,29 @@ class Galaxy extends Component {
         const { galaxy, isLoading } = this.props;
         let displayGalaxy;
         if (galaxy.length !== 0) {
-            if (isLoading) {
-                return (
-                    <div className='loading-display'>
-                        <h2>Loading</h2>
-                        <img src={LoadingGif} alt='loading gif' />
-                    </div>
+            displayGalaxy = galaxy.items.map(item => {
+            return (
+                <div key={item.data[0].nasa_id}>
+                    <InfoCard information={item} />
+                </div>
                 )
-            } else {
-                displayGalaxy = galaxy.items.map(item => {
-                return (
-                        <div key={item.data[0].nasa_id}>
-                            <InfoCard information={item} />
-                        </div>
-                    )
-                });
-            }
+            });
         }
 
         return (
+            isLoading ?
+            (
+            <div className='loading-display'>
+                <h2>Loading</h2>
+                <img src={LoadingGif} alt='loading gif' />
+            </div>
+            ) :
+            (
             <div className='info-items-container'>
                 <Particles />
                 {displayGalaxy}
             </div>
+            )
         )
     }
 }

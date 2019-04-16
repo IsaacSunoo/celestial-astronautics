@@ -17,29 +17,27 @@ class Apollo20 extends Component {
     console.log(apollo20)
     let displayApollo20;
     if (apollo20.length !== 0) {
-      if (isLoading) {
+      displayApollo20 = apollo20.items.map(apollo => {
         return (
+          <div className='apollo-items' key={apollo.data[0].nasa_id}>
+            <InfoCard information={apollo} />
+          </div>
+        )
+      });
+    };
+
+    return (
+      isLoading ?
+        (
           <div className='loading-display'>
             <h2>Loading</h2>
             <img src={LoadingGif} alt='loading gif' />
           </div>
-        )
-      } else {
-        displayApollo20 = apollo20.items.map(apollo => {
-          return (
-            <div className='apollo-items' key={apollo.data[0].nasa_id}>
-              <InfoCard information={apollo} />
-            </div>
-          )
-        });
-      };
-    }
-
-    return (
-      <div className='info-items-container'>
+        ) :
+      ( <div className='info-items-container'>
         <Particles />
         {displayApollo20}
-      </div>
+      </div> )
     )
   }
 }

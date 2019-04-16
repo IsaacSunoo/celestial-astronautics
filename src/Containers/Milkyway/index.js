@@ -16,29 +16,29 @@ class Milkyway extends Component {
         const { milkyway, isLoading } = this.props;
         let displayMilkyway;
         if (milkyway.length !== 0) {
-            if (isLoading) {
+            displayMilkyway = milkyway.items.map(milkyItem => {
                 return (
-                    <div className='loading-display'>
-                        <h2>Loading</h2>
-                        <img src={LoadingGif} alt='loading gif' />
+                    <div key={milkyItem.data[0].nasa_id}>
+                        <InfoCard information={milkyItem} />
                     </div>
                 )
-            } else {
-                displayMilkyway = milkyway.items.map(milkyItem => {
-                    return (
-                        <div key={milkyItem.data[0].nasa_id}>
-                            <InfoCard information={milkyItem} />
-                        </div>
-                    )
-                });
-            }
+            });
         }
 
         return (
+            isLoading ?
+            (
+            <div className='loading-display'>
+                <h2>Loading</h2>
+                <img src={LoadingGif} alt='loading gif' />
+            </div>
+            ) :
+            (
             <div className='info-items-container'>
                 <Particles />
                 {displayMilkyway}
             </div>
+            )
         )
     }
 }
