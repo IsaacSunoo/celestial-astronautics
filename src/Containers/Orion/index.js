@@ -4,8 +4,9 @@ import { getOrion } from '../../thunks';
 import LoadingGif from '../../images/Loading.gif';
 import Particles from '../../components/Particles';
 import InfoCard from '../../components/InfoCard';
+import PropTypes from 'prop-types';
 
-class Orion extends Component {
+export class Orion extends Component {
 
     componentDidMount = async () => {
         const { getOrion } = this.props;
@@ -51,5 +52,10 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
     getOrion: () => dispatch(getOrion())
 });
+
+Orion.propTypes = {
+  getOrion: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Orion);

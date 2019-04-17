@@ -4,8 +4,9 @@ import { getGalaxy } from '../../thunks';
 import LoadingGif from '../../images/Loading.gif';
 import InfoCard from '../../components/InfoCard';
 import Particles from '../../components/Particles';
+import PropTypes from 'prop-types';
 
-class Galaxy extends Component {
+export class Galaxy extends Component {
     componentDidMount = async () => {
         const { getGalaxy } = this.props;
         await getGalaxy();
@@ -50,5 +51,11 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
     getGalaxy: () => dispatch(getGalaxy())
 });
+
+Galaxy.propTypes = {
+  getGalaxy: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Galaxy);

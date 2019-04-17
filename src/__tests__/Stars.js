@@ -1,9 +1,23 @@
-import { mapStateToProps, mapDispatchToProps } from '../containers/Stars';
+import React from 'react';
+import { Stars, mapStateToProps, mapDispatchToProps } from '../containers/Stars';
+import { shallow } from 'enzyme';
 import { getStars } from '../thunks';
 
 jest.mock('../thunks');
+const mockStars = [];
+const mockIsLoading = false;
 
 describe('stars', () => {
+  let wrapper;
+  window.fetch = jest.fn();
+  beforeEach(() => {
+    wrapper = shallow(<Stars stars={mockStars} isLoading={mockIsLoading} />);
+  });
+
+  it('should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+
   describe('mapStateToProps', () => {
     it('returns an object with houses', () => {
       const mockState = {
@@ -21,7 +35,7 @@ describe('stars', () => {
   });
 
   describe('mapDispatchToProps', () => {
-    it.skip('calls dispatch with a getMilkyway thunk', () => {
+    it('calls dispatch with a getMilkyway thunk', () => {
       const mockDispatch = jest.fn();
       const actionToDispatch = getStars();
       const mappedProps = mapDispatchToProps(mockDispatch);

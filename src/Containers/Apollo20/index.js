@@ -4,8 +4,9 @@ import { getApollo20 } from '../../thunks';
 import LoadingGif from '../../images/Loading.gif';
 import InfoCard from '../../components/InfoCard';
 import Particles from '../../components/Particles';
+import PropTypes from 'prop-types';
 
-class Apollo20 extends Component {
+export class Apollo20 extends Component {
 
   componentDidMount = async () => {
     const { getApollo20 } = this.props;
@@ -14,7 +15,6 @@ class Apollo20 extends Component {
 
   render() {
     const { apollo20, isLoading } = this.props;
-    console.log(apollo20)
     let displayApollo20;
     if (apollo20.length !== 0) {
       displayApollo20 = apollo20.items.map(apollo => {
@@ -50,5 +50,10 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   getApollo20: () => dispatch(getApollo20())
 });
+
+Apollo20.propTypes = {
+  getApollo20: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Apollo20);

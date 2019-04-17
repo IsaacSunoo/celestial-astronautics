@@ -4,8 +4,9 @@ import { getStars } from '../../thunks';
 import LoadingGif from '../../images/Loading.gif';
 import InfoCard from '../../components/InfoCard';
 import Particles from '../../components/Particles';
+import PropTypes from 'prop-types';
 
-class Apollo20 extends Component {
+export class Stars extends Component {
 
     componentDidMount = async () => {
         const { getStars } = this.props;
@@ -48,4 +49,9 @@ export const mapDispatchToProps = dispatch => ({
     getStars: () => dispatch(getStars())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Apollo20);
+Stars.propTypes = {
+  getStars: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Stars);

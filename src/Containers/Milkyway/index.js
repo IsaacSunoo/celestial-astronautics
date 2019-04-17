@@ -4,8 +4,9 @@ import { getMilkyway } from '../../thunks';
 import LoadingGif from '../../images/Loading.gif';
 import InfoCard from '../../components/InfoCard';
 import Particles from '../../components/Particles';
+import PropTypes from 'prop-types';
 
-class Milkyway extends Component {
+export class Milkyway extends Component {
 
     componentDidMount = async () => {
         const { getMilkyway } = this.props;
@@ -52,5 +53,9 @@ export const mapDispatchToProps = dispatch => ({
     getMilkyway: () => dispatch(getMilkyway())
 });
 
+Milkyway.propTypes = {
+  getMilkyway: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Milkyway);

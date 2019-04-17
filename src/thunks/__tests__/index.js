@@ -10,7 +10,7 @@ describe('Thunks', () => {
         window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
             ok: true,
             json: () => Promise.resolve({
-                mockData,
+                mockData
             })
         }));
     });
@@ -41,7 +41,7 @@ describe('Thunks', () => {
                 ok: false,
                 statusText: 'Error Retrieving'
             }));
-            const thunk = getDailyNews;
+            const thunk = getDailyNews();
             await thunk(mockDispatch);
             expect(mockDispatch).toHaveBeenCalledWith(actions.setError('Error Retrieving.'))
         });
@@ -73,7 +73,7 @@ describe('Thunks', () => {
                 ok: false,
                 statusText: 'Error Retrieving'
             }));
-            const thunk = getApollo20;
+            const thunk = getApollo20();
             await thunk(mockDispatch);
             expect(mockDispatch).toHaveBeenCalledWith(actions.setError('Error Retrieving.'))
         });
@@ -105,7 +105,7 @@ describe('Thunks', () => {
                 ok: false,
                 statusText: 'Error Retrieving'
             }));
-            const thunk = getOrion;
+            const thunk = getOrion();
             await thunk(mockDispatch);
             expect(mockDispatch).toHaveBeenCalledWith(actions.setError('Error Retrieving.'))
         });
@@ -137,7 +137,7 @@ describe('Thunks', () => {
                 ok: false,
                 statusText: 'Error Retrieving'
             }));
-            const thunk = getDailyNews;
+            const thunk = getMilkyway();
             await thunk(mockDispatch);
             expect(mockDispatch).toHaveBeenCalledWith(actions.setError('Error Retrieving.'))
         });
@@ -169,7 +169,7 @@ describe('Thunks', () => {
                 ok: false,
                 statusText: 'Error Retrieving'
             }));
-            const thunk = getNebula;
+            const thunk = getNebula();
             await thunk(mockDispatch);
             expect(mockDispatch).toHaveBeenCalledWith(actions.setError('Error Retrieving.'))
         });
@@ -201,7 +201,7 @@ describe('Thunks', () => {
                 ok: false,
                 statusText: 'Error Retrieving'
             }));
-            const thunk = getGalaxy;
+            const thunk = getGalaxy();
             await thunk(mockDispatch);
             expect(mockDispatch).toHaveBeenCalledWith(actions.setError('Error Retrieving.'))
         });
@@ -233,7 +233,7 @@ describe('Thunks', () => {
                 ok: false,
                 statusText: 'Error Retrieving'
             }));
-            const thunk = getStars;
+            const thunk = getStars();
             await thunk(mockDispatch);
             expect(mockDispatch).toHaveBeenCalledWith(actions.setError('Error Retrieving.'))
         });

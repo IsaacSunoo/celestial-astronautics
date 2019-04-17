@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Particles from 'react-particles-js';
 
-
 class ParticlesContainer extends Component {
     render() {
         return (

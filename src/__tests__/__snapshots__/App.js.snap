@@ -1,3 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App matches snapshot 1`] = `undefined`;
+exports[`App should match snapshot 1`] = `
+<div
+  className="app"
+>
+  <Route
+    component={[Function]}
+    path="/"
+  />
+  <Switch>
+    <Route
+      exact={true}
+      path="/"
+      render={[Function]}
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Apollo20)",
+          "type": [Function],
+          Symbol(Symbol.hasInstance): [Function],
+        }
+      }
+      exact={true}
+      path="/apollo"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Orion)",
+          "type": [Function],
+          Symbol(Symbol.hasInstance): [Function],
+        }
+      }
+      exact={true}
+      path="/orion"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Milkyway)",
+          "type": [Function],
+          Symbol(Symbol.hasInstance): [Function],
+        }
+      }
+      exact={true}
+      path="/milkyway"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Nebula)",
+          "type": [Function],
+          Symbol(Symbol.hasInstance): [Function],
+        }
+      }
+      exact={true}
+      path="/nebula"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Galaxy)",
+          "type": [Function],
+          Symbol(Symbol.hasInstance): [Function],
+        }
+      }
+      exact={true}
+      path="/galaxy"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(Stars)",
+          "type": [Function],
+          Symbol(Symbol.hasInstance): [Function],
+        }
+      }
+      exact={true}
+      path="/stars"
+    />
+    <Route
+      component={[Function]}
+    />
+  </Switch>
+</div>
+`;

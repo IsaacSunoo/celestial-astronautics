@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`main page should match snapshot 1`] = `
+<div
+  className="home-page"
+>
+  <ParticlesContainer />
+  <h3 />
+  <img
+    alt="daily nasa media"
+    className="center-media"
+  />
+  <p
+    className="daily-date"
+  />
+  <p
+    className="daily-description"
+  />
+</div>
+`;

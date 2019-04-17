@@ -4,10 +4,9 @@ import { getNebula } from '../../thunks';
 import LoadingGif from '../../images/Loading.gif';
 import Particles from '../../components/Particles';
 import InfoCard from '../../components/InfoCard';
+import PropTypes from 'prop-types';
 
-
-
-class Nebula extends Component {
+export class Nebula extends Component {
     componentDidMount = async () => {
         const { getNebula } = this.props;
         await getNebula();
@@ -52,5 +51,10 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
     getNebula: () => dispatch(getNebula())
 });
+
+Nebula.propTypes = {
+  getNebula: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nebula);
