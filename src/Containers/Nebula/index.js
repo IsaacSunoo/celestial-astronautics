@@ -53,7 +53,7 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 Nebula.propTypes = {
-  getNebula: PropTypes.func.isRequired,
+  getNebula: PropTypes.func,
   isLoading: PropTypes.bool.isRequired
 };
 

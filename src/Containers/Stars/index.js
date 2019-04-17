@@ -7,7 +7,6 @@ import Particles from '../../components/Particles';
 import PropTypes from 'prop-types';
 
 export class Stars extends Component {
-
     componentDidMount = async () => {
         const { getStars } = this.props;
         await getStars();
@@ -50,7 +49,7 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 Stars.propTypes = {
-  getStars: PropTypes.func.isRequired,
+  getStars: PropTypes.func,
   isLoading: PropTypes.bool.isRequired
 };
 

@@ -1,16 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header should match snapshot 1`] = `
-<header
-  className="header-container"
->
-  <h1>
-    Celestial Astronautical
-  </h1>
-  <section
-    className="route-container"
-  >
-    <WithStyles(DropdownMenu) />
-  </section>
-</header>
+<ReactStickyHeader
+  header={
+    <header
+      className="header-container"
+    >
+      <h1>
+        Celestial Astronautical
+      </h1>
+      <section
+        className="route-container"
+      >
+        <WithStyles(DropdownMenu) />
+      </section>
+    </header>
+  }
+  headerOnly={false}
+  onSticky={[Function]}
+/>
 `;

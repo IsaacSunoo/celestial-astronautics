@@ -4,7 +4,6 @@ import 'react-sticky-header/styles.css';
 import StickyHeader from 'react-sticky-header';
 
 const Header = () => {
-
   return (
     <StickyHeader
       header={

@@ -7,7 +7,6 @@ import Particles from '../../components/Particles';
 import PropTypes from 'prop-types';
 
 export class Apollo20 extends Component {
-
   componentDidMount = async () => {
     const { getApollo20 } = this.props;
     await getApollo20();
@@ -34,11 +33,13 @@ export class Apollo20 extends Component {
             <img src={LoadingGif} alt='loading gif' />
           </div>
         ) :
-      ( <div className='info-items-container'>
-        <Particles />
-        {displayApollo20}
-      </div> )
-    )
+        (
+          <div className='info-items-container'>
+            <Particles />
+            {displayApollo20}
+          </div>
+        )
+    );
   }
 }
 
@@ -52,7 +53,7 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 Apollo20.propTypes = {
-  getApollo20: PropTypes.func.isRequired,
+  getApollo20: PropTypes.func,
   isLoading: PropTypes.bool.isRequired
 };
 

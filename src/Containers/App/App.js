@@ -51,7 +51,7 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 App.propTypes = {
-  getDailyNews: PropTypes.func.isRequired,
+  getDailyNews: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -53,9 +53,8 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 Galaxy.propTypes = {
-  getGalaxy: PropTypes.func.isRequired,
+  getGalaxy: PropTypes.func,
   isLoading: PropTypes.bool.isRequired
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Galaxy);

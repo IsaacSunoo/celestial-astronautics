@@ -7,7 +7,6 @@ import InfoCard from '../../components/InfoCard';
 import PropTypes from 'prop-types';
 
 export class Orion extends Component {
-
     componentDidMount = async () => {
         const { getOrion } = this.props;
         await getOrion();
@@ -54,7 +53,7 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 Orion.propTypes = {
-  getOrion: PropTypes.func.isRequired,
+  getOrion: PropTypes.func,
   isLoading: PropTypes.bool.isRequired
 };
 

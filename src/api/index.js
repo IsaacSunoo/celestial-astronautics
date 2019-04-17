@@ -4,6 +4,6 @@ export const fetchCall = async (url, option) => {
         const data = await response.json();
         return data;
     } else {
-        throw new Error(`Error Retrieving. \n Status: ${response.status} \n Body: {response.body}`);
+        throw new Error(`Error Retrieving. Status: ${response.status}. Body: ${response.body}`);
     }
 }

@@ -7,7 +7,6 @@ import Particles from '../../components/Particles';
 import PropTypes from 'prop-types';
 
 export class Milkyway extends Component {
-
     componentDidMount = async () => {
         const { getMilkyway } = this.props;
         await getMilkyway();
@@ -54,7 +53,7 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 Milkyway.propTypes = {
-  getMilkyway: PropTypes.func.isRequired,
+  getMilkyway: PropTypes.func,
   isLoading: PropTypes.bool.isRequired
 };
 
