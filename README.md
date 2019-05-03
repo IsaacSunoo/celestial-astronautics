@@ -45,7 +45,11 @@ Stretch goals would include building out more data in a more stylish UI.  Anothe
 * Sass
 
 ## Screenshots
+Main Page
+![Image of Mainpage](images/Readme2.png)
 
-![Image of Mainpage](images/readme2.png)
-![Image of Results](images/readme1.png)
-![Image of Info](images/readme3.png)
+Example Results
+![Image of Results](images/Readme1.png)
+
+Info Dropdown
+![Image of Info](images/Readme3.png)
