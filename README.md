@@ -49,7 +49,7 @@ Main Page
 ![Image of Mainpage](images/Readme2.png)
 
 Example Results
-![Image of Results](images/Readme1.png)
+![Image of Info](images/Readme3.png)
 
 Info Dropdown
-![Image of Info](images/Readme3.png)
+![Image of Results](images/Readme1.png)
