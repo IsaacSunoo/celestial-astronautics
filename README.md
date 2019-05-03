@@ -46,6 +46,6 @@ Stretch goals would include building out more data in a more stylish UI.  Anothe
 
 ## Screenshots
 
-![Image of Mainpage](images/readme2)
-![Image of Results](images/readme1)
-![Image of Info](images/readme3)
+![Image of Mainpage](images/readme2.png)
+![Image of Results](images/readme1.png)
+![Image of Info](images/readme3.png)
