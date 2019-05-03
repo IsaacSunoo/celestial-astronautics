@@ -1,4 +1,4 @@
-## PrototypeMaster
+## Celestial Astronautics
 
 ### Author
 Isaac Sunoo
@@ -6,11 +6,18 @@ Isaac Sunoo
 ## Getting Started:
 These instructions will get a copy of the project up and running on your local machine for usage and testing purposes.
 
+Get NASA API Key froom https://api.nasa.gov/index.html#apply-for-an-api-key
+
 clone down the repository:
 ```
 $ git clone https://github.com/IsaacSunoo/celestial-astronautics.git
 ```
+Inside of src folder, create an 'api_key' folder, inside folder create api.js file.
+```
+const apiKey = 'insert api key here';
 
+export default apiKey;
+```
 cd into directory and run npm install:
 ```
 $ npm install
@@ -36,3 +43,9 @@ Stretch goals would include building out more data in a more stylish UI.  Anothe
 * Thunks
 * CSS
 * Sass
+
+## Screenshots
+
+![Image of Mainpage](images/readme2)
+![Image of Results](images/readme1)
+![Image of Info](images/readme3)
