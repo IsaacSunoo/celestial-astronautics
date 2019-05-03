@@ -43,7 +43,7 @@ describe('Thunks', () => {
             }));
             const thunk = getDailyNews();
             await thunk(mockDispatch);
-            expect(mockDispatch).toHaveBeenCalledWith(actions.setError('Error Retrieving.'))
+            expect(mockDispatch).toHaveBeenCalledWith(actions.setError())
         });
     });
 

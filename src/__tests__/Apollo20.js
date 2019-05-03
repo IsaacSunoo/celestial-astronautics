@@ -17,6 +17,7 @@ describe('apollo', () => {
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
   describe('mapStateToProps', () => {
     it('returns an object with houses', () => {
       const mockState = {

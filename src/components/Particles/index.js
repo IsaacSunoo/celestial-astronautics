@@ -8,7 +8,7 @@ class ParticlesContainer extends Component {
                 params={{
                     "particles": {
                         "number": {
-                            "value": 150,
+                            "value": 1300,
                             "density": {
                                 "enable": true,
                                 "value_area": 1803.4120608655228

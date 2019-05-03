@@ -75,7 +75,7 @@ exports[`Particles container should match snapshot 1`] = `
             "enable": true,
             "value_area": 1803.4120608655228,
           },
-          "value": 150,
+          "value": 1300,
         },
         "opacity": Object {
           "anim": Object {
