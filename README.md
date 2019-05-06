@@ -6,7 +6,7 @@ Isaac Sunoo
 ## Getting Started:
 These instructions will get a copy of the project up and running on your local machine for usage and testing purposes.
 
-Get NASA API Key froom https://api.nasa.gov/index.html#apply-for-an-api-key
+Get NASA API Key from https://api.nasa.gov/index.html#apply-for-an-api-key
 
 clone down the repository:
 ```
